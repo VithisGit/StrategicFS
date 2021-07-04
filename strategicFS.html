@@ -1,0 +1,32 @@
+<template>
+    <div>
+        <lightning-datatable
+                key-field="id"
+                data={data}
+                columns={columns}
+                onrowselection={onSelectRow}
+                suppress-bottom-bar
+                oncellchange={handleDraftValues}               >
+        </lightning-datatable>
+        <lightning-layout>
+            <lightning-layout-item padding="around-small">
+                    <lightning-button variant="brand" label="ADD DEBT" title="ADD DEBT" onclick={handleAddDebt} class="slds-m-left_x-small"></lightning-button>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small">
+                    <lightning-button variant="brand" label="REMOVE DEBT" title="REMOVE DEBT" onclick={handleRemoveDebt} class="slds-m-left_x-small"></lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+    </div>
+    <div class="slds-box slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none background-color: lightblue">
+        <lightning-layout>
+            <lightning-layout-item size="10" padding="around-small">
+                <lightning-formatted-text value="TOTAL" ></lightning-formatted-text>
+            </lightning-layout-item>
+            <lightning-layout-item size="2" padding="around-small" class="slds-text-align_right">
+                <lightning-formatted-number format-style="currency"
+                currency-code="USD" value={total} ></lightning-formatted-number>
+            </lightning-layout-item>
+        </lightning-layout>
+    </div>
+    Total Row Count : {totalRowCount} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Check Row Count: {selectedRowCount}
+</template>
